@@ -4,9 +4,9 @@ import BeanForm from "./BeanForm";
 import { v4 } from "uuid";
 
 
-function Add(props){
+function Add(props) {
 
-  function addNewBeanToList(event){
+  function addNewBeanToList(event) {
     event.preventDefault();
     props.addNewBeanToList({
       name: event.target.name.value,

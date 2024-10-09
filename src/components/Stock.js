@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Bean from "./Bean";
+import { v4 } from "uuid";
 
 function Stock(props) {
   return (
