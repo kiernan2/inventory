@@ -28,7 +28,7 @@ class Store extends React.Component {
     const newMainStockList = this.state.mainStockList.concat(newBean)
     this.setState({
       mainStockList: newMainStockList,
-      formVisiblePage: true
+      formVisiblePage: false
     });
   }
 
@@ -37,7 +37,7 @@ class Store extends React.Component {
     if (this.state.formVisiblePage === false) {
       currentlyVisibleState = <Stock stock={this.state.mainStockList} />
     } else if (this.state.formVisiblePage === true) {
-      currentlyVisibleState = <Add addNewBeanToList />
+      currentlyVisibleState = <Add addNewBeanToList={this.addNewBean} />
     }
 
     return (

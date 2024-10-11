@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function BeanForm(props) {
   return (
     <React.Fragment>
-      <form onSubmit={props.formSubmission}>
+      <form onSubmit={props.formSubmissionHandler}>
         <input
           type="text"
           name="name"

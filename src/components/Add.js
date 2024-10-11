@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import BeanForm from "./BeanForm";
 import { v4 } from "uuid";
 
-
 function Add(props) {
 
-  function addNewBeanToList(event) {
+  function addBeanToList(event) {
     event.preventDefault();
     props.addNewBeanToList({
       name: event.target.name.value,
@@ -19,7 +18,7 @@ function Add(props) {
   return (
     <React.Fragment>
       <BeanForm
-        formSubmissionHandler={addNewBeanToList}
+        formSubmissionHandler={addBeanToList}
         buttonText="Help" />
     </React.Fragment>
   );
