@@ -8,7 +8,9 @@ class Store extends React.Component {
     super(props);
     this.state = {
       formVisiblePage: false,
-      mainStockList: []
+      mainStockList: [],
+      selectedObject: null,
+      editing: false
     };
   }
 
@@ -24,6 +26,26 @@ class Store extends React.Component {
     }
   }
 
+  editFunction = (beanId) => {
+    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+    this.setState({ selectedObject: foundObject })
+    this.setState({ editing: true })
+  }
+
+  buyFunction = (beanId) => {
+    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+    const updatedObject = { ...foundObject, count: foundObject.count - 1 }
+    if (updatedObject.count < 0) {
+      return;
+    }
+    const editingMainStockList = this.state.mainStockList
+      .filter(bean => bean.id !== beanId)
+      .concat(updatedObject);
+    this.setState({
+      mainStockList: editingMainStockList
+    });
+  }
+
   addNewBean = (newBean) => {
     const newMainStockList = this.state.mainStockList.concat(newBean)
     this.setState({
@@ -34,11 +56,13 @@ class Store extends React.Component {
 
   render() {
     let currentlyVisibleState = null;
-    if (this.state.formVisiblePage === false) {
-      currentlyVisibleState = <Stock stock={this.state.mainStockList} />
+    if (this.state.editing) {
+      
+    } else if (this.state.formVisiblePage === false) {
+      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} />
     } else if (this.state.formVisiblePage === true) {
       currentlyVisibleState = <Add addNewBeanToList={this.addNewBean} />
-    }
+    } 
 
     return (
       <React.Fragment>

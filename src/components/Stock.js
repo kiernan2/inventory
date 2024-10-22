@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Bean from "./Bean";
-import { v4 } from "uuid";
 
 function Stock(props) {
   return (
     <React.Fragment>
       <hr/>
       {props.stock.map((stock) =>
-        <Bean name={stock.name}
+        <Bean func={props.buyFunc}
+          name={stock.name}
           count={stock.count}
           recipe={stock.recipe}
           key={stock.id}
@@ -20,7 +20,8 @@ function Stock(props) {
 }
 
 Stock.propTypes = {
-  stock: PropTypes.array
+  stock: PropTypes.array,
+  buyFunc: PropTypes.func
 };
 
 export default Stock;
