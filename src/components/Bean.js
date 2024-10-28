@@ -7,6 +7,7 @@ function Bean(props) {
       <h3>{props.name} - {props.count === 0 ? "Out of Stock":props.count}</h3>
       <p>{props.recipe}</p>
       <button onClick={() => props.func(props.id)}>buy</button>
+      <button onClick={() => props.edit(props.id)}>edit</button>
     </React.Fragment>
   )
 }
@@ -16,7 +17,8 @@ Bean.propTypes = {
   count: PropTypes.number,
   recipe: PropTypes.string,
   id: PropTypes.string,
-  func: PropTypes.func
+  func: PropTypes.func,
+  edit: PropTypes.func
 };
 
 export default Bean;

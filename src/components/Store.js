@@ -1,6 +1,7 @@
 import React from "react";
 import Stock from "./Stock";
 import Add from "./Add";
+import Edit from "./Edit";
 
 class Store extends React.Component {
 
@@ -24,6 +25,14 @@ class Store extends React.Component {
         formVisiblePage: false
       })
     }
+  }
+
+  editBeanFunction = (newBean) => {
+    const resetBean = { ...this.state.selectedObject, ...newBean }
+    const editList = this.state.mainStockList
+      .filter(bean => bean.id !== this.state.selectedObject.id)
+      .concat(resetBean);
+    this.setState({ editing: false, mainStockList: editList })
   }
 
   editFunction = (beanId) => {
@@ -57,9 +66,9 @@ class Store extends React.Component {
   render() {
     let currentlyVisibleState = null;
     if (this.state.editing) {
-      
+      currentlyVisibleState = <Edit editObjectOnList={this.editBeanFunction} theObject={this.state.selectedObject}/>
     } else if (this.state.formVisiblePage === false) {
-      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} />
+      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction}/>
     } else if (this.state.formVisiblePage === true) {
       currentlyVisibleState = <Add addNewBeanToList={this.addNewBean} />
     } 

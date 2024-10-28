@@ -8,6 +8,7 @@ function Stock(props) {
       <hr/>
       {props.stock.map((stock) =>
         <Bean func={props.buyFunc}
+          edit={props.editFunc}
           name={stock.name}
           count={stock.count}
           recipe={stock.recipe}
@@ -21,7 +22,8 @@ function Stock(props) {
 
 Stock.propTypes = {
   stock: PropTypes.array,
-  buyFunc: PropTypes.func
+  buyFunc: PropTypes.func,
+  editFunc: PropTypes.func
 };
 
 export default Stock;
