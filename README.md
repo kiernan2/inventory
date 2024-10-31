@@ -1,35 +1,35 @@
-# Getting Started with Create React App
+# Local Business Inventory Tracker
 
-# (Application Name)
+#### A React App that tracks inventory for a local business
 
-#### (Brief Description of Application)
-
-#### By (Your Name Here)
+#### By Kiernan beattie
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _React_
+* _Html_
+* _WebPack_
+* _The Human Brain_
 
-## Description
+##  made in response to this prompt
+
+### Build an application in React that tracks inventory for a local business. We're going to keep this simple: you'll pick one inventory item and track how much of it is remaining as it gets sold or given away. There are a lot of themes to choose from, and you can create your own as long as you're able to track the remaining amount of an inventory item and meet the objectives.
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _Clone repo_
+* _Open Cmd_
+* _"Npm i"_
+* _"Npm run start"_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _N/a_
 
 ## License
 
-* MIT _Year_
+* MIT _2024_
 
 ## Contact Information
+
+* Kiernan1994@gmail.com
