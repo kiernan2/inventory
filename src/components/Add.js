@@ -9,10 +9,12 @@ function Add(props) {
     event.preventDefault();
     props.addNewBeanToList({
       name: event.target.name.value,
-      recipe: event.target.recipe.value,
+      roast: event.target.roast.value,
       count: parseInt(event.target.count.value),
-      id: v4(),
+      price: parseInt(event.target.price.value),
+      id: v4()
     });
+
   }
 
   return (

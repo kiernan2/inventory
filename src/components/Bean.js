@@ -5,9 +5,10 @@ function Bean(props) {
   return (
     <React.Fragment>
       <h3>{props.name} - {props.count === 0 ? "Out of Stock":props.count}</h3>
-      <p>{props.recipe}</p>
+      <p>{props.roast + " $ " + props.price}</p>
       <button onClick={() => props.func(props.id)}>buy</button>
       <button onClick={() => props.edit(props.id)}>edit</button>
+      <button onClick={() => props.delete(props.id)}>delete</button>
     </React.Fragment>
   )
 }
@@ -15,10 +16,12 @@ function Bean(props) {
 Bean.propTypes = {
   name: PropTypes.string,
   count: PropTypes.number,
-  recipe: PropTypes.string,
+  roast: PropTypes.string,
+  price: PropTypes.number,
   id: PropTypes.string,
   func: PropTypes.func,
-  edit: PropTypes.func
+  edit: PropTypes.func,
+  delete: PropTypes.func
 };
 
 export default Bean;

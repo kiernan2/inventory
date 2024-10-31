@@ -12,14 +12,19 @@ function BeanForm(props) {
           placeholder="noInput" />
         <input
           type="text"
-          name="recipe"
-          defaultValue={props?.prvOrder?.recipe || ""}
+          name="roast"
+          defaultValue={props?.prvOrder?.roast  || ""}
           placeholder="noInput" />
         <input
           type="number"
           name="count"
-          defaultValue={props?.prvOrder?.count || 0}
-          placeholder="0" />
+          defaultValue={props?.prvOrder?.count || 130}
+          placeholder="130" />
+        <input
+          type="number" 
+          name="price"
+          defaultValue={props?.prvOrder?.price || 5}
+          placeholder="5" />
         <button type="submit">Submit</button>
       </form>
     </React.Fragment>

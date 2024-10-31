@@ -55,6 +55,17 @@ class Store extends React.Component {
     });
   }
 
+  restockFunction = (beanId) => {
+    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+    const updatedObject = { ...foundObject, count: foundObject.count + 130 }
+    const editingMainStockList = this.state.mainStockList
+      .filter(bean => bean.id !== beanId)
+      .concat(updatedObject);
+    this.setState({
+      mainStockList: editingMainStockList
+    });
+  }
+
   addNewBean = (newBean) => {
     const newMainStockList = this.state.mainStockList.concat(newBean)
     this.setState({
@@ -63,19 +74,28 @@ class Store extends React.Component {
     });
   }
 
+  removeBean = (beanId) => {
+    const editingMainStockList = this.state.mainStockList
+      .filter(bean => bean.id !== beanId)
+      this.setState({
+        mainStockList: editingMainStockList,
+        editing: false
+      });
+  }
+
   render() {
     let currentlyVisibleState = null;
     if (this.state.editing) {
       currentlyVisibleState = <Edit editObjectOnList={this.editBeanFunction} theObject={this.state.selectedObject}/>
     } else if (this.state.formVisiblePage === false) {
-      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction}/>
+      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction} deleteFunc={this.removeBean}/>
     } else if (this.state.formVisiblePage === true) {
       currentlyVisibleState = <Add addNewBeanToList={this.addNewBean} />
     } 
 
     return (
       <React.Fragment>
-        <button onClick={this.menuToggle}>Toggle</button>
+        <button onClick={this.menuToggle}>Toggle Serve/Stock Mode</button>
         {currentlyVisibleState}
       </React.Fragment>
     )

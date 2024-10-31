@@ -9,9 +9,11 @@ function Stock(props) {
       {props.stock.map((stock) =>
         <Bean func={props.buyFunc}
           edit={props.editFunc}
+          delete={props.deleteFunc}
           name={stock.name}
           count={stock.count}
-          recipe={stock.recipe}
+          price={stock.price}
+          roast={stock.roast}
           key={stock.id}
           id={stock.id}
         />
@@ -23,7 +25,8 @@ function Stock(props) {
 Stock.propTypes = {
   stock: PropTypes.array,
   buyFunc: PropTypes.func,
-  editFunc: PropTypes.func
+  editFunc: PropTypes.func,
+  deleteFunc: PropTypes.func
 };
 
 export default Stock;
