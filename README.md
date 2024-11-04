@@ -17,10 +17,13 @@
 
 ## Setup/Installation Requirements
 
-* _Clone repo_
-* _Open Cmd_
-* _"Npm i"_
-* _"Npm run start"_
+1 _Clone this repo_
+2 _Open a console or terminal_
+3 _Move to the repos new directory_
+4 _Enter npm install_
+5 _Enter npm run start_
+6 _The program should appear in your default browser_
+  * _If it doesn't try entering the URL "http://localhost:8080"_
 
 ![Alt text](diagram.png)
 
