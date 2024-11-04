@@ -9,11 +9,11 @@
 * _React_
 * _Html_
 * _WebPack_
-* _The Human Brain_
+* _Vscode_
 
-##  made in response to this prompt
+##  Description
 
-### Build an application in React that tracks inventory for a local business. We're going to keep this simple: you'll pick one inventory item and track how much of it is remaining as it gets sold or given away. There are a lot of themes to choose from, and you can create your own as long as you're able to track the remaining amount of an inventory item and meet the objectives.
+ A simple example site to track products in a store
 
 ## Setup/Installation Requirements
 
@@ -21,6 +21,8 @@
 * _Open Cmd_
 * _"Npm i"_
 * _"Npm run start"_
+
+![Alt text](diagram.png)
 
 ## Known Bugs
 
