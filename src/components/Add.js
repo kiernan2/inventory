@@ -7,7 +7,7 @@ function Add(props) {
 
   function addBeanToList(event) {
     event.preventDefault();
-    props.addNewBeanToList({
+    props.addNewItemToList({
       name: event.target.name.value,
       roast: event.target.roast.value,
       count: parseInt(event.target.count.value),
@@ -27,7 +27,7 @@ function Add(props) {
 }
 
 Add.propTypes = {
-  addNewBeanToList: PropTypes.func
+  addNewItemToList: PropTypes.func
 };
 
 export default Add;

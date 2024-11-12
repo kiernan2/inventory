@@ -27,56 +27,56 @@ class Store extends React.Component {
     }
   }
 
-  editBeanFunction = (newBean) => {
-    const resetBean = { ...this.state.selectedObject, ...newBean }
+  editItemFunction = (newItem) => {
+    const resetItem = { ...this.state.selectedObject, ...newItem }
     const editList = this.state.mainStockList
-      .filter(bean => bean.id !== this.state.selectedObject.id)
-      .concat(resetBean);
+      .filter(item => item.id !== this.state.selectedObject.id)
+      .concat(resetItem);
     this.setState({ editing: false, mainStockList: editList })
   }
 
-  editFunction = (beanId) => {
-    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+  editFunction = (itemId) => {
+    const foundObject = this.state.mainStockList.find(item => item.id === itemId);
     this.setState({ selectedObject: foundObject })
     this.setState({ editing: true })
   }
 
-  buyFunction = (beanId) => {
-    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+  buyFunction = (itemId) => {
+    const foundObject = this.state.mainStockList.find(item => item.id === itemId);
     const updatedObject = { ...foundObject, count: foundObject.count - 1 }
     if (updatedObject.count < 0) {
       return;
     }
     const editingMainStockList = this.state.mainStockList
-      .filter(bean => bean.id !== beanId)
+      .filter(item => item.id !== itemId)
       .concat(updatedObject);
     this.setState({
       mainStockList: editingMainStockList
     });
   }
 
-  restockFunction = (beanId) => {
-    const foundObject = this.state.mainStockList.find(bean => bean.id === beanId);
+  restockFunction = (itemId) => {
+    const foundObject = this.state.mainStockList.find(item => item.id === itemId);
     const updatedObject = { ...foundObject, count: foundObject.count + 130 }
     const editingMainStockList = this.state.mainStockList
-      .filter(bean => bean.id !== beanId)
+      .filter(item => item.id !== itemId)
       .concat(updatedObject);
     this.setState({
       mainStockList: editingMainStockList
     });
   }
 
-  addNewBean = (newBean) => {
-    const newMainStockList = this.state.mainStockList.concat(newBean)
+  addNewItem = (newItem) => {
+    const newMainStockList = this.state.mainStockList.concat(newItem)
     this.setState({
       mainStockList: newMainStockList,
       formVisiblePage: false
     });
   }
 
-  removeBean = (beanId) => {
+  removeFunction = (itemId) => {
     const editingMainStockList = this.state.mainStockList
-      .filter(bean => bean.id !== beanId)
+      .filter(item => item.id !== itemId)
       this.setState({
         mainStockList: editingMainStockList,
         editing: false
@@ -86,11 +86,11 @@ class Store extends React.Component {
   render() {
     let currentlyVisibleState = null;
     if (this.state.editing) {
-      currentlyVisibleState = <Edit editObjectOnList={this.editBeanFunction} theObject={this.state.selectedObject}/>
+      currentlyVisibleState = <Edit editObjectOnList={this.editItemFunction} theObject={this.state.selectedObject}/>
     } else if (this.state.formVisiblePage === false) {
-      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction} deleteFunc={this.removeBean}/>
+      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction} deleteFunc={this.removeFunction}/>
     } else if (this.state.formVisiblePage === true) {
-      currentlyVisibleState = <Add addNewBeanToList={this.addNewBean} />
+      currentlyVisibleState = <Add addNewItemToList={this.addNewItem} />
     } 
 
     return (

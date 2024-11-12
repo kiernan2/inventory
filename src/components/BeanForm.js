@@ -8,23 +8,23 @@ function BeanForm(props) {
         <input
           type="text"
           name="name"
-          defaultValue={props?.prvOrder?.name || ""}
-          placeholder="noInput" />
+          defaultValue={props?.prvOrder?.name || "name of item"}
+          placeholder="name of item" />
         <input
           type="text"
           name="roast"
-          defaultValue={props?.prvOrder?.roast  || ""}
-          placeholder="noInput" />
+          defaultValue={props?.prvOrder?.roast  || "Item description"}
+          placeholder="Item description" />
         <input
           type="number"
           name="count"
-          defaultValue={props?.prvOrder?.count || 130}
-          placeholder="130" />
+          defaultValue={props?.prvOrder?.count  || "Stock Amount"}
+          placeholder="Stock Amount" />
         <input
           type="number" 
           name="price"
-          defaultValue={props?.prvOrder?.price || 5}
-          placeholder="5" />
+          defaultValue={props?.prvOrder?.price || null}
+          placeholder="Price" />
         <button type="submit">Submit</button>
       </form>
     </React.Fragment>

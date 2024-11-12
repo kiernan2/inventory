@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 function Bean(props) {
   return (
     <React.Fragment>
-      <h3>{props.name} - {props.count === 0 ? "Out of Stock":props.count}</h3>
-      <p>{props.roast + " $ " + props.price}</p>
+      <h3>{props.name}: amount in stock: {props.count === 0 ? "Out of Stock":props.count}</h3>
+      <p>{props.roast}</p>
+      <p>{" $ " + props.price}</p>
       <button onClick={() => props.func(props.id)}>buy</button>
       <button onClick={() => props.edit(props.id)}>edit</button>
       <button onClick={() => props.delete(props.id)}>delete</button>
