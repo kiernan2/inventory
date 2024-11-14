@@ -26,7 +26,9 @@
 6 _The program should appear in your default browser_
   * _If it doesn't try entering the URL "http://localhost:8080"_
 
-![Alt text](diagram.png)
+ ## Diagram
+
+[Alt text](diagram.png)
 
 ## Known Bugs
 
