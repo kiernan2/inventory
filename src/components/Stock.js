@@ -5,7 +5,7 @@ import Bean from "./Bean";
 function Stock(props) {
   return (
     <React.Fragment>
-      <h2> look through our stock of high-quality plumbuses </h2>
+      <h2> look through our stock of high-quality coffee </h2>
       <hr/>
       {props.stock.map((stock) =>
         <Bean func={props.buyFunc}
