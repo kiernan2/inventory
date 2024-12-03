@@ -10,7 +10,8 @@ function Add(props) {
     props.addNewItemToList({
       name: event.target.name.value,
       roast: event.target.roast.value,
-      count: parseInt(event.target.count.value),
+      count: 130,
+      origin: event.target.origin.value,
       price: parseInt(event.target.price.value),
       id: v4()
     });

@@ -12,6 +12,7 @@ function Stock(props) {
           edit={props.editFunc}
           delete={props.deleteFunc}
           name={stock.name}
+          origin={stock.origin}
           count={stock.count}
           price={stock.price}
           roast={stock.roast}

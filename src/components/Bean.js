@@ -5,6 +5,7 @@ function Bean(props) {
   return (
     <React.Fragment>
       <h3>{props.name}: amount in stock: {props.count === 0 ? "Out of Stock":props.count}</h3>
+      <h4>Sourced by {props.origin}</h4>
       <p>{props.roast}</p>
       <p>{" $ " + props.price}</p>
       <button onClick={() => props.func(props.id)}>buy</button>
@@ -19,6 +20,7 @@ Bean.propTypes = {
   count: PropTypes.number,
   roast: PropTypes.string,
   price: PropTypes.number,
+  origin: PropTypes.string,
   id: PropTypes.string,
   func: PropTypes.func,
   edit: PropTypes.func,

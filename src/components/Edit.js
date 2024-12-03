@@ -9,7 +9,8 @@ function Edit(props){
     props.editObjectOnList({
       name: event.target.name.value,
       roast: event.target.roast.value,
-      count: parseInt(event.target.count.value),
+      origin: event.target.origin.value,
+      count: props.theObject.count.value,
       price: parseInt(event.target.price.value)
     });
   }
