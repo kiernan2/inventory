@@ -5,6 +5,7 @@ import Bean from "./Bean";
 function Stock(props) {
   return (
     <React.Fragment>
+      <button onClick={props.menuToggle}>Toggle Serve/Stock Mode</button>
       <h2> look through our stock of high-quality coffee </h2>
       <hr/>
       {props.stock.map((stock) =>
@@ -28,7 +29,8 @@ Stock.propTypes = {
   stock: PropTypes.array,
   buyFunc: PropTypes.func,
   editFunc: PropTypes.func,
-  deleteFunc: PropTypes.func
+  deleteFunc: PropTypes.func,
+  menuToggle: PropTypes.func
 };
 
 export default Stock;

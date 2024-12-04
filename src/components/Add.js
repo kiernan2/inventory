@@ -20,6 +20,7 @@ function Add(props) {
 
   return (
     <React.Fragment>
+      <button onClick={props.menuToggle}>Toggle Serve/Stock Mode</button>
       <BeanForm
         formSubmissionHandler={addBeanToList}
         buttonText="Help" />
@@ -28,7 +29,8 @@ function Add(props) {
 }
 
 Add.propTypes = {
-  addNewItemToList: PropTypes.func
+  addNewItemToList: PropTypes.func,
+  menuToggle: PropTypes.func
 };
 
 export default Add;

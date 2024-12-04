@@ -27,7 +27,7 @@ class Store extends React.Component {
     }
   }
 
-  editItemFunction = (newItem) => {
+  editBeenObjectFunction = (newItem) => {
     const resetItem = { ...this.state.selectedObject, ...newItem }
     const editList = this.state.mainStockList
       .filter(item => item.id !== this.state.selectedObject.id)
@@ -86,16 +86,15 @@ class Store extends React.Component {
   render() {
     let currentlyVisibleState = null;
     if (this.state.editing) {
-      currentlyVisibleState = <Edit editObjectOnList={this.editItemFunction} theObject={this.state.selectedObject}/>
+      currentlyVisibleState = <Edit editObjectOnList={this.editBeenObjectFunction} theObject={this.state.selectedObject} />
     } else if (this.state.formVisiblePage === false) {
-      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction} deleteFunc={this.removeFunction}/>
+      currentlyVisibleState = <Stock stock={this.state.mainStockList} buyFunc={this.buyFunction} editFunc={this.editFunction} deleteFunc={this.removeFunction} menuToggle={this.menuToggle} />
     } else if (this.state.formVisiblePage === true) {
-      currentlyVisibleState = <Add addNewItemToList={this.addNewItem} />
+      currentlyVisibleState = <Add addNewItemToList={this.addNewItem} menuToggle={this.menuToggle} />
     } 
 
     return (
       <React.Fragment>
-        <button onClick={this.menuToggle}>Toggle Serve/Stock Mode</button>
         {currentlyVisibleState}
       </React.Fragment>
     )
